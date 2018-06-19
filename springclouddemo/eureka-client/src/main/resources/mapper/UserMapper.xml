@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo0.mapper.SeekMapper">
+
+    <select id="findById" resultType="com.example.demo0.user.model.User">
+select id,email,mobile,avatar,pwd,create_time,update_time) from users  where id = #{id,jdbcType=INTEGER};
+    </select>
+    <select id="getUserById" resultType="com.example.demo0.user.model.User">
+select id,email,mobile,avatar,pwd,create_time,update_time) from users  where id = #{id,jdbcType=INTEGER};
+    </select>
+    <select id="findInfo" resultType="com.example.demo0.user.model.User">
+    select id,email,mobile,avatar,pwd,create_time,update_time) from users;
+  </select>
+    <insert id="add" parameterType="com.example.demo0.user.model.User">
+    insert into users (id, pwd)
+    values (#{id,jdbcType=INTEGER}, #{pwd,jdbcType=VARCHAR})
+  </insert>
+    <insert id="addInfo" >
+    insert into users (id,email,mobile,avatar,pwd,create_time,update_time)
+    values
+    (#{id,jdbcType=INTEGER},#{email,jdbcType=VARCHAR},#{mobile,jdbcType=VARCHAR},#{avatar,
+    jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},#{create_time,jdbcType=DATA},#{update_time,
+    jdbcType=DATA})
+  </insert>
+    <delete id="delInfo" parameterType="java.lang.Integer">
+   delete from users where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <update id="updInfo" parameterType="com.example.demo0.user.model.User">
+
+    </update>
+
+</mapper>
